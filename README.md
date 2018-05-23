@@ -57,3 +57,7 @@ hexo server [-p xxxx]
 
 ### 完成后部署
 `hexo deploy --generate`
+
+### 存在的问题
+1. 每次提交更新，不管是push master的分支，还是hexo deploy提交gh-pages的分支，都要重新设置项目的custom domain。
+2. 每次hexo deploy部署的时间都比较久。
