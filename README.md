@@ -48,7 +48,12 @@ hexo server -i 192.168.1.1
 hexo server [-p xxxx]
 ```
 
+### 清空public目录
+
+`hexo clean`
+
 ### 生成器
+
 `hexo generate --watch`
 
 
@@ -57,6 +62,32 @@ hexo server [-p xxxx]
 
 ### 完成后部署
 `hexo deploy --generate`
+
+### 绑定域名
+
+每次部署后，在github上设置好的域名会被清空，怎么办？
+
+在source目录下添加名为CNAME的文件，然后写入自己博客的域名即可。
+
+部署时会把source目录下的文件推动到github上，CNAME会记录github博客域名的别名，可以设置为你自己的域名。
+
+### 发表图片
+
+绝对路径方式：在source目录下添加，例如source/images/1.jpg，此时图片路径填`/images/1.jpg`。
+
+相对路径方式：
+
+图片除了可以放在统一的`images`文件夹中，还可以放在文章自己的目录中。文章的目录可以通过配置`_config.yml`来生成。
+
+```
+_config.ymlpost_asset_folder: true
+```
+
+将`_config.yml`文件中的配置项`post_asset_folder`设为`true`后，执行命令`$ hexo new post_name`，在`source/_posts`中会生成文章`post_name.md`和同名文件夹`post_name`。将图片资源放在`post_name`中，文章就可以使用相对路径引用图片资源了。
+
+```
+_posts/post_name/image.jpg![](image.jpg)
+```
 
 ### 存在的问题
 1. 每次提交更新，不管是push master的分支，还是hexo deploy提交gh-pages的分支，都要重新设置项目的custom domain。
