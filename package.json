@@ -18,6 +18,6 @@
     "hexo-server": "^0.2.2",
     "hoek": "^4.2.1",
     "uglify-js": "^2.6.0",
-    "valine": "^1.1.9-beta4"
+    "valine": "^1.4.15"
   }
 }
